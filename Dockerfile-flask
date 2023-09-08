@@ -1,0 +1,21 @@
+# Utilisez l'image de base Python
+FROM python:3.8-slim-buster
+
+ENV MONGO_DB_USERNAME=root\
+    MONGO_DB__PWD=example
+
+# Répertoire de travail dans le conteneur
+WORKDIR /app
+
+COPY app/requirements.txt /app/
+
+# Installez les dépendances
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Exposez le port 5000
+EXPOSE 5000
+
+VOLUME [ "/app" ]
+
+# Commande pour exécuter l'application
+CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]

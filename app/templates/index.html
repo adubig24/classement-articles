@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+
+{% block content %}
+    <main class="text-center">
+        <img src="/static/image/paperplane.gif" alt="GIF animé" class="gif-image">
+        <h1>PaperSearch - votre moteur de recherche d'articles</h1>
+
+
+        <div class="d-flex justify-content-center mt-4">
+            <button onclick="showAll()" class="btn btn-primary mr-2">Afficher Tous les Articles</button>
+            <button onclick="showByAuthors()" class="btn btn-primary mx-2">Recherche par Auteurs</button>
+            <button onclick="showByYear()" class="btn btn-primary ml-2">Recherche par Année</button>
+        </div>
+
+        {{ author_names }}
+
+        <div id="filtered-results"></div>
+    </main>
+
+{% endblock %}
